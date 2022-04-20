@@ -1,9 +1,11 @@
-import { Request, Response } from "express";
-import connection from "./data/connection";
 import app from "./app";
+import criarEstudante from "./endpoints/criarEstudante";
+import buscarEstudante from "./endpoints/buscarEstudante";
 
-//test database
-// app.get("/getall", async (req:Request, res:Response) => {
-//   const result = await connection("movie");
-//   res.status(200).send(result);
-// });
+//get estudantes
+app.get("/estudante/:nome", buscarEstudante);
+
+//post estudante
+app.post("/criarEstudante", criarEstudante);
+
+//put turma estudante
