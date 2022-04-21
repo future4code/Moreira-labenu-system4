@@ -6,3 +6,13 @@ Content-Type: application/json
   "modulos" : 0
 }
 ### 
+
+POST http://localhost:3003/docente
+Content-Type: application/json
+
+{
+  "nome": "flavio",
+  "email": "flavio@labenu.com.br",
+  "data_nasc": "1989-08-23",
+  "turma_id": "3"
+}
