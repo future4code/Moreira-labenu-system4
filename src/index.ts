@@ -6,6 +6,7 @@ import criarDocente from "./endpoints/criarDocente";
 import editarTurmaEstudante from "./endpoints/editarEstudante";
 import buscarDocente from "./endpoints/buscarDocente";
 
+
 //criar turma
 app.post('/turma/criar', criarTurma)
 
