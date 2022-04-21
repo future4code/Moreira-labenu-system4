@@ -2,7 +2,7 @@ export class Estudante {
   private id: string;
   private nome: string;
   private email: string;
-  private data_nasc: string;
+  public data_nasc: string;
   private turma_id: string;
 
   constructor(
@@ -17,7 +17,9 @@ export class Estudante {
     this.data_nasc = data_nasc;
     this.turma_id = turma_id;
   }
-
+  // changeData(){
+  //  return this.data_nasc=new Date(this.data_nasc).toLocaleDateString();
+  // }
   getNome() {
     return this.nome;
   }
