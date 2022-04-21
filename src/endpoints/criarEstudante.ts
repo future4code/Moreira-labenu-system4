@@ -13,11 +13,11 @@ export default async function criarEstudante(
     });
 
     //corrigindo o formato da data
-    const separaData = data_nasc.split("/");
-    const ano = Number(separaData[2]);
-    const mes = Number(separaData[1]);
-    const dia = Number(separaData[0]);
-    const newDataNasc = `${ano}/${mes}/${dia}`;
+    const separaData:string = data_nasc.split("/");
+    const ano:string = separaData[2];
+    const mes:string = separaData[1];
+    const dia:string = separaData[0];
+    const newDataNasc:string = `${ano}/${mes}/${dia}`;
 
     //validações
     if (!nome || !email || !data_nasc || !turma_id) {
