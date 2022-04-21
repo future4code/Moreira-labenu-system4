@@ -1,15 +1,11 @@
 import { Request, Response } from "express"
 import connection from "../data/connection"
 
-function dataFormatada(data: any) {
-  return data.split('/').reverse().join('-')
-}
-
-export default async function (req: Request, res: Response): Promise<void> {
+export default async function criarDocente(req: Request, res: Response): Promise<void> {
   try {
     let { nome, data_nasc, email, turma_id } = req.body
     const id = Date.now().toString()
-    dataFormatada(data_nasc)
+
     await connection("Docente")
       .insert({ id, nome, data_nasc, email, turma_id })
 
@@ -19,6 +15,6 @@ export default async function (req: Request, res: Response): Promise<void> {
     res.status(201).send("Professor Cadastrado!")
 
   } catch (error: any) {
-    res.status(500).send(error.sqlMessage)
+    res.status(500).send(error)
   }
 }
