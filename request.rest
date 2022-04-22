@@ -1,8 +1,8 @@
 //Criar Turma
-POST http://localhost:3003/turmar/criar
+POST http://localhost: 3003/turmar/criar
 Content-Type: application/json
+
 {
-  "nome" : "Moreira",
-  "modulos" : 0
+  "nome" : "Silva"
 }
 ### 
