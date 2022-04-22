@@ -5,6 +5,7 @@ import criarTurma from "./endpoints/criarTurma";
 import criarDocente from "./endpoints/criarDocente";
 import editarTurmaEstudante from "./endpoints/editarEstudante";
 import buscarDocente from "./endpoints/buscarDocente";
+import editarDocente from "./endpoints/editarDocentes";
 
 
 //criar turma
@@ -25,3 +26,5 @@ app.post("/docente", criarDocente)
 //Buscar todas as pessoas docentes
 app.get("/docente", buscarDocente)
 
+//Mudar docente de turma;
+app.put("/docente:id", editarDocente)

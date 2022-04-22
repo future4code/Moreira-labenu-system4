@@ -7,7 +7,7 @@ export default async function criarDocente(req: Request, res: Response): Promise
     const id = Date.now().toString()
 
     await connection("Docente")
-      .insert({ id, nome, data_nasc, email, turma_id })
+      .insert({ id, nome, data_nasc, email, turma_id });
 
     if (!nome || !data_nasc || !email || !turma_id) {
       res.status(422).send("Todos os campos são de preenchimento obrigatório.")
@@ -15,6 +15,6 @@ export default async function criarDocente(req: Request, res: Response): Promise
     res.status(201).send("Professor Cadastrado!")
 
   } catch (error: any) {
-    res.status(500).send(error)
+    res.status(500).send(error.sqlMessage)
   }
 }
