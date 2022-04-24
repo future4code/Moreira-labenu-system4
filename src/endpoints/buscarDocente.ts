@@ -1,12 +1,17 @@
 import { Request, Response } from "express"
 import connection from "../data/connection"
-import { docente } from "../types/types"
 
 export default async function buscarDocente(req: Request, res: Response): Promise<void> {
   try {
-    const docentes: docente[] = await connection("Docente")
+    const docentes = await connection("Docente")
+
+    if (!docentes) {
+      res.statusCode = 404
+      throw new Error("Docente não encontrado")
+    }
+
     res.status(202).send(docentes)
   } catch (error: any) {
-    res.status(500).send(error.sqlMessage)
+    res.status(500).send({ message: error.message })
   }
 }

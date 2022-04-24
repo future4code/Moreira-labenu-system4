@@ -27,4 +27,4 @@ app.post("/docente", criarDocente)
 app.get("/docente", buscarDocente)
 
 //Mudar docente de turma;
-app.put("/docente:id", editarDocente)
+app.put("/docente/:id", editarDocente)

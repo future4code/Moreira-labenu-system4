@@ -2,24 +2,19 @@ import { Request, Response } from "express"
 import connection from "../data/connection"
 
 export default async function editarDocente(req: Request, res: Response): Promise<void> {
+
   try {
-    let { turma_id } = req.body
-    let id = req.params.id
-
-    if (!id) {
-      throw new Error("Preencha o id do professor")
-    }
-
-    if (!turma_id) {
-      throw new Error("Preencha o id da turma")
-    }
+    const id = req.params.id
+    const turma_id = req.body.turma_id
 
     await connection("Docente")
-      .update({ turma_id })
+      .update({
+        turma_id: turma_id
+      })
       .where(id === id)
 
-    res.status(202).send("Alteração realizada com sucesso!")
+    res.status(202).send("Turma alterada com sucesso!")
   } catch (error: any) {
-    res.status(500).send("Erro Interno")
+    res.status(500).send(error)
   }
 }

@@ -11,10 +11,10 @@ POST http://localhost:3003/docente
 Content-Type: application/json
 
 {
-  "nome": "Jorge",
-  "email": "jorge@labenu.com.br",
-  "data_nasc": "1980-10-25",
-  "turma_id": "1"
+  "nome": "Maria ",
+  "email": "maria@labenu.com.br",
+  "data_nasc": "1990-08-30",
+  "turma_id": "4"
 }
 
 ### 
@@ -22,11 +22,11 @@ Content-Type: application/json
 GET http://localhost:3003/docente
 Content-Type: application/json
 
-### 
+###
 
-PUT http://localhost:3003/docente:1650538049358
+PUT http://localhost:3003/docente/165083390835
 Content-Type: application/json
 
 {
-  "turma_id": ""
+  "turma_id": "6"
 }

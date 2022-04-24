@@ -8,10 +8,3 @@ export enum Modulo {
   six = 6
 }
 
-export type docente = {
-  id: string,
-  nome: string,
-  email: string,
-  data_nasc: string,
-  turma_id: string
-}
