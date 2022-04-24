@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { Turmas } from "../classes/ClassTurmas";
 import connection from "../data/connection";
 
-export default async function buscarTurma(req: Request, res: Response): Promise<void> {
+export default async function buscarTodasAsTurma(req: Request, res: Response): Promise<void> {
   try {
     const resultado = await connection.raw(`
-    SELECT * FROM Turma WHERE modulo`)
+    SELECT * FROM Turma`)
     if(resultado.length === 0 ){ 
     res.statusCode = 422;
     throw new Error("Não tem turma ativa")}

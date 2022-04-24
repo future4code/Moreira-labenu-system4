@@ -4,17 +4,22 @@ import buscarEstudante from "./endpoints/buscarEstudante";
 import criarTurma from "./endpoints/criarTurma";
 import criarDocente from "./endpoints/criarDocente";
 import editarTurmaEstudante from "./endpoints/editarEstudante";
-import buscarTurma from "./endpoints/buscarTurma";
-//import mudarTurma from "./endpoints/editarTurma";
+import buscarTurma from "./endpoints/buscarTodasAsTurmas";
+import mudarTurma from "./endpoints/editarTurma";
+import buscarTurmasAtivas from "./endpoints/buscarTurmasAtivas";
+
+
+//buscar turmas Ativas
+app.get('/turma/ativas', buscarTurmasAtivas)
 
 //criar turma
 app.post('/turma/criar', criarTurma)
 
-//buscar turma
+//buscar todas as turmas
 app.get('/turma', buscarTurma)
 
-//buscar turma
-//app.put('/turma/:id', mudarTurma)
+//editar modulo da turma
+app.put('/turma/:id', mudarTurma)
 
 //get estudantes
 app.get("/estudante/:nome", buscarEstudante);

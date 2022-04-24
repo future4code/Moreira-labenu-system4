@@ -1,34 +1,29 @@
-// import { Request, Response } from 'express';
-// import { connection } from '../data/connection';
-// import { Turmas } from '../classes/ClassTurmas'
-// import { Modulo }   from '../types/types';
+import { Request, Response } from 'express';
+import { connection } from '../data/connection';
+import {Turmas}   from '../classes/ClassTurmas';
 
-// //Recebe os dados e atualiza
-// const mudaModulo = async (
-//   id: string,
-//   nome: string, 
-//   modulo: number, 
-//   ): Promise<any> => {
-//   await connection("Turma")
-//     .update({
-//       nome: nome,
-//       modulo: Modulo
-//     })
-//     .where("id", id);
-// };
-
-// //Altera o modulo da turma
-// export default async function mudarModulo(req: Request, res: Response): Promise<void> {
+//Altera o modulo da turma
+export default async function mudarModulo(req: Request, res: Response): Promise<void> {
 
 
-//   try{
-//     const id_turma =  req.params.id;
-//     const {id, nome, modulo} : {id: string, nome: string, modulo: Modulo} = req.body
-//     const turma = new Turmas(id , nome)
-//     turma.setModulo(modulo);
-//     const mudaModulo = new Turmas(turma.getTurmaId(), turma.getTurmaModulo())
-//    res.status(201).send(mudaModulo);
-// }catch(error: any){
-//     res.status(500).send(error.sqlMessage || error.message)
-//   }
-// }
+  try{
+    const id_turma =  req.params.id;
+    const {id, modulo}= req.body
+
+    const turma = await connection("Turma")
+    const verificaTurma: Turmas= turma.find((turma)=> turma.id === id_turma)
+    
+    if(!verificaTurma){
+      throw new Error("Essa turma não foi encontrada!")
+    }
+
+   const resultado: Turmas = await connection("Turma")
+    .where({id: id})
+    .update({modulo});
+    
+     res.status(200).send("Modulo alterado com sucesso!");
+
+    }catch(error: any){
+      res.status(500).send(error.sqlMessage || error.message)
+    }
+}
