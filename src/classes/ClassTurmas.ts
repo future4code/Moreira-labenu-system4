@@ -4,8 +4,12 @@ export class Turmas{
   constructor(
     private id: string,
     private nome: string,
-    public modulo: Modulo
+    public modulo?: Modulo | undefined
   ){}
+
+  setModulo(novoModulo: Modulo){ 
+    this.modulo = novoModulo;
+}
     
   public getTurmaId = (): string => {
     return this.id;
@@ -15,8 +19,13 @@ export class Turmas{
     return this.nome;
   };
 
-  public getTurmaModulo = (): Modulo => {
-    return this.modulo;
-  };
+  public getTurmaModulo = ():  Modulo | undefined => {
+    if(this.modulo) {
+      return this.modulo
+    } else {
+      return undefined
+    }
+  }
 
 }
+

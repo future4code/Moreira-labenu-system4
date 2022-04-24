@@ -3,8 +3,6 @@ import {connection} from '../data/connection';
 import { Turmas } from '../classes/ClassTurmas'
 
 
-
-
 export default async function criarTurma(req: Request, res: Response): Promise<void> {
 
   try{
@@ -12,7 +10,7 @@ export default async function criarTurma(req: Request, res: Response): Promise<v
     const idTurma = Date.now().toString();
     const moduloTurma = 0;
 
-    if(!nomeTurma || !moduloTurma){
+    if(!nomeTurma){
       throw new Error("Você precisa preencher todas as informações")
     }
     const turmas: Turmas = new Turmas(idTurma,nomeTurma, moduloTurma);
