@@ -13,6 +13,12 @@ export default async function criarDocente(req: Request, res: Response): Promise
       throw new Error("Informe uma turma válida")
     }
 
+    const validarEmail = (await connection("Docente")).find((docente) => docente.email === email)
+    if (validarEmail) {
+      res.statusCode = 409
+      throw new Error("Email já cadastrado!")
+    }
+
     if (!nome || !data_nasc || !email || !turma_id) {
       res.statusCode = 422
       throw new Error("Todos os campos são de preenchimento obrigatório.")

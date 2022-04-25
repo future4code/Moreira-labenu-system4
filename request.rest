@@ -1,20 +1,27 @@
 //Criar Turma
-POST http://localhost:3003/turmar/criar
+POST http://localhost: 3003/turmar/criar
 Content-Type: application/json
+
 {
-  "nome" : "Moreira",
-  "modulos" : 0
+  "nome" : "Silva"
 }
 ### 
+PUT http://localhost:3003/docente/1650835093595
+Content-Type: application/json
 
+{
+  "turma_id": "6"
+}
+
+###
 POST http://localhost:3003/docente
 Content-Type: application/json
 
 {
-  "nome": "Maria ",
-  "email": "maria@labenu.com.br",
+  "nome": "Luana",
+  "email": "luana@labenu.com.br",
   "data_nasc": "1990-08-30",
-  "turma_id": "4"
+  "turma_id": "6"
 }
 
 ### 
@@ -24,9 +31,3 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3003/docente/165083390835
-Content-Type: application/json
-
-{
-  "turma_id": "6"
-}

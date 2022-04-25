@@ -1,10 +1,10 @@
 export enum Modulo {
   zero = 0,
-  one = 1,
-  two = 2,
-  three = 3,
-  four = 4,
-  five = 5,
-  six = 6
+  um = 1,
+  dois = 2,
+  três = 3,
+  quatro = 4,
+  cinco = 5,
+  seis = 6,
+  sete = 7
 }
-
